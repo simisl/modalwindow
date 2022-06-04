@@ -1,0 +1,24 @@
+
+<div class="mainWindow" *ngIf="display">
+  <div class="dialogue" class="dialog">
+    <div class="heading">
+      <h3>Add Name</h3>
+      <img src="assets/close.png" (click)="closeDialogue()"/>
+    </div>
+
+    <form [formGroup]="detailsForm" (ngSubmit)="submit(detailsForm.value)">
+      <label>Name*</label>
+      <input type="text" formControlName="name">
+      <span *ngFor="let err of validationMsg.name">
+        <span *ngIf="detailsForm.get('name')?.hasError(err.type) && detailsForm.get('name')?.touched">{{err.message}}</span>
+      </span>
+      <label>Age*(in years)</label>
+      <input type="text" formControlName="age">
+      <span *ngFor="let err of validationMsg.age">
+        <span *ngIf="detailsForm.get('age')?.hasError(err.type) && detailsForm.get('age')?.touched">{{err.message}}</span>
+      </span>
+      <button type="submit" class="sub">Submit</button>
+    </form>
+
+  </div>
+</div>

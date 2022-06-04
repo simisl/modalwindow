@@ -1,0 +1,31 @@
+<div class="main">
+  <div class="inner">
+    <div class="firstSection">
+      <h4>Latest Record</h4>
+      <p>Name: {{newRecord.name}}</p>
+      <p>Age(in years): {{newRecord.age}}</p>
+
+    </div>
+    <div>
+      <table>
+        <tr>
+          <th>
+              Name
+            </th>
+            <th>
+              Age
+            </th>
+        </tr>
+        <tr *ngFor="let data of tableData; let i=index">
+          <td>{{data.name}}</td>
+          <td>{{data.age}}
+            <span *ngIf="i===tableData.length-1">
+              <app-child (newData)="updateTable($event)" [top]='btnTop'>
+              </app-child>
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+ </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="child">
+  <button (click)="openDialogue()" #btn >+</button>
+  <span *ngIf="click">
+    <app-dialogue [display]="open" (data)=getData($event) (close)="closeDialogue($event)"></app-dialogue>
+  </span>
+
+</div>
+
